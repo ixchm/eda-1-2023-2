@@ -9,24 +9,24 @@ int pedirOpcion(int opMax)
     int op;
     char opChar[10];
     
-    fflush(stdin);
+    fflush(stdin);//Vaciando buffer
     do                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
     {
-        printf("-> "); gets(opChar);
-        op = atoi(opChar);
-        if(op < 1)
+        printf("-> "); gets(opChar);//gets no tiene limitante en cuanto al tamaño de la cadena(lee)
+        op = atoi(opChar);//Convirtiendo el string a entero
+        if(op < 1)//Comprobando que la opcion sea valida
         printf("Opcion invalida\n");
         else if(op > opMax)
         printf("Opcion invalida. El maximo es %d\n", opMax);
         printf("\n");
-    } while (op<1 || op > opMax);
+    } while (op<1 || op > opMax);//ejecutar en bucle hasta que se cumpla una condicion
     fflush(stdin);
 
     return op;
 }
 int menuPrincipal()
 {
-    system("cls");
+    system("cls");//Limpiando la pantalla de la terminal
     printf("*******MENU PRINCIPAL*******\n");
     printf(".:Simulador de movimiento para la torre y el alfil:.\n");
     printf("1)Simulador del alfil\n");
@@ -34,7 +34,7 @@ int menuPrincipal()
     printf("3)Salir\n\n");
 
     printf(".:Seleccione una opcion:.\n");
-    return pedirOpcion(3);
+    return pedirOpcion(3);//El numero maximo de opciones es 3 (en este caso)
 }
 int menuRetorno()
 {
@@ -52,7 +52,7 @@ int tablero[9][9];
 printf("\nIngrese la posicion del alfil en este formato -> x,y:"); 
     scanf("%d,%d",&x,&y); 
 
-// crerar toda la matriz 
+// crear toda la matriz 
 
     for (i=1; i<9; i++){
         for (j=1; j<9; j++){ 
@@ -153,27 +153,27 @@ for ( i=x, j=y; (i>0&&j<9);j++ ) {
     }  
 }
 
-int main()
+int main()//inicio de la ejecución del programa
 {
 	int opcion;
 	
-	inicio:
-		opcion= menuPrincipal();
+	inicio://te lleva al menu principal
+		opcion= menuPrincipal();//la funcion menuPrincipal imprime el menú
 		
-		seleccion:
+		seleccion://apertura para seleccionar caso
 		system("cls");
 		switch (opcion)
 		{
 			case 1: movimientoAlfil(); break;
 			case 2: movimientoTorre();break;
-			default: goto salir; break;
+			default: goto salir; break;//termina el switch y sale del programa
 		}
 		
 		switch (menuRetorno())
 		{
 			case 1: goto seleccion; break;
 			case 2: goto inicio; break;
-			default: break;
+			default: break;//termina el switch
 		}
 		salir:
 			printf("\nGracias por usar el programa :)\n\n");
