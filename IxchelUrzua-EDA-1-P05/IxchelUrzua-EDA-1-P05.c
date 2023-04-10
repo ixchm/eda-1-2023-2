@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #define MAX_SIZE 10//Tamaño maximo de la pila y cola
 
-// define cÛmo se almacenan y acceden los elementos de una pila en la memoria de la computadora.
+// define como se almacenan y acceden los elementos de una pila en la memoria de la computadora.
 typedef struct {
     int items[MAX_SIZE];//Almacenar· elementos de la pila 
     int top;//representa posicion topede la pila en el arreglo items
@@ -25,7 +25,7 @@ void push(Stack* s, int item) {
     if (s->top == 0) { //verifica si la pila esta llena
         printf("Stack overflow\n");
     } else {
-        s->top--;//Si la pila no est· llena, decrementa el valor del tope de la pila
+        s->top--;//Si la pila no esta llena, decrementa el valor del tope de la pila
         s->items[s->top] = item;
     }
 }
@@ -94,7 +94,7 @@ void print_stack(Stack* s) {
 
 int main() {
     
-    //se est· creando una pila que contiene los n˙meros del MAX_SIZE hasta 1, en orden descendente.
+    //se esta creando una pila que contiene los numeros del MAX_SIZE hasta 1, en orden descendente.
     Stack s;
     s.top = MAX_SIZE;
     for (int i = MAX_SIZE; i >= 1; i--) {
