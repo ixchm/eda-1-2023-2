@@ -22,7 +22,6 @@ void invertir(char arreglo[MAX_LENGTH], char arreglo2[MAX_LENGTH])
 int main(void)
 {
     char cadena[MAX_LENGTH], final[MAX_LENGTH];
-    int len=0;
     int op = 0;
 
     do {
