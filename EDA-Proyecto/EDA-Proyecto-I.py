@@ -415,7 +415,7 @@ def ordenar_xNombre():
      global inventario
      lista=[]
      for x,y in inventario.items():
-        lista.append([x,y[0]])#y0 ordena nombre
+        lista.append([x,y[0]])#y0 ordena nombre, .append manda al final
      num_clave=1
      Merge_Sort(lista,num_clave)
      imprimir_lis(lista)   
@@ -527,8 +527,13 @@ def AtencionClientes ():
 
 def VerQuejas():
     global cola
+    cont=0
     if cola:
-        print(cola.pop(0))#si cola esta llena llama al rpimer elemento
+         print("La lista esta mostrando del mas antiguo al mas reciente")
+         for x in range(len(cola)):
+             
+            print(f"{cont+1}.- {cola[cont]}")
+            cont+=1
     else:
          print("No hay quejas")
 
